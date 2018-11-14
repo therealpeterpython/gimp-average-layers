@@ -10,14 +10,14 @@ This GIMP plugin merges all layers in an image by taking the average value of ea
 #### Linux
 
 1. Move this plugin into the `~/.gimp-2.8/plug-ins/` directory.
-2. `chmod +x ~/.gimp-2.8/plug-ins/layer-average.py`
+2. `chmod +x ~/.gimp-2.8/plug-ins/average-layers.py`
 3. Restart GIMP.
 
 
 #### Mac OS X
 
 1. Move this plugin into the `~/Library/Application\ Support/GIMP/2.8/plug-ins/` directory.
-2. `chmod +x ~/Library/Application\ Support/GIMP/2.8/plug-ins/layer-average.py`
+2. `chmod +x ~/Library/Application\ Support/GIMP/2.8/plug-ins/average-layers.py`
 3. Restart GIMP.
 
 
