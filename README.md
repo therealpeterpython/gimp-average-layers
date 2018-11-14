@@ -7,6 +7,12 @@ This GIMP plugin merges all layers in an image by taking the average value of ea
 
 ### Installing
 
+#### Windows
+
+1. Move this plugin into the `%appdata%/GIMP/2.8/plug-ins/` directory.
+2. Restart GIMP.
+
+
 #### Linux
 
 1. Move this plugin into the `~/.gimp-2.8/plug-ins/` directory.
