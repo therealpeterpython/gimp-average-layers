@@ -37,9 +37,13 @@ This GIMP plugin merges all layers in an image by taking an average value of eac
 
 ### Problems
 
-The biggest problem is the speed with some of the average functions. 
-They work with pixel regions and the hole process is slow for the mean and very slow for the mode function.
-If you have an idea to speed things up just let me now or create a merge request.
+The biggest problem is the speed. The mean average works different from the others and is thereby really fast.
+If you choose one of the other average functions you maybe have to wait a long time. 
+The plugin works with pixel regions and the hole process is slow for the mean and very slow for the mode function.
+
+Another issue is the fact that you can not cancel the execution properly.
+
+If you have a solution to this problems just let me now.
 
 
 ### Roadmap
@@ -55,6 +59,7 @@ I have restructured everything to implement different kinds of average functions
 
 
 ### Author & Licensing
+
 Made by Simon Filter (2019, public domain)
 
 [Changes][2] were made by John Goodliff (2018).  
