@@ -44,20 +44,20 @@ If you have an idea to speed things up just let me now or create a merge request
 
 ### Roadmap
 
-I am planing to implement the range average and my own generalized mode average.
-If its possible i am speeding the algorith up.
+I am planing to implement the range average and my own generalized mode average.  
+If it is possible i will speeding the algorithm up.
 
 
 ### Changes
 
-The [original function][1] was made created by Oona Räisänen. [John Goodliff][2] added some features like an undo group and progress bar. 
+The [original function][1] was made created by Oona Räisänen. [John Goodliff][2] added some features like an undo group and progress bar.  
 I have restructured everything to implement different kinds of average functions.
 
 
 ### Author & Licensing
 Made by Simon Filter (2019, public domain)
 
-[Changes][2] were made by John Goodliff (2018).
+[Changes][2] were made by John Goodliff (2018).  
 [Original function][1] was created by Oona Räisänen (2012-2015, public domain).
 
 
