@@ -43,14 +43,17 @@ The plugin works with pixel regions and the hole process is slow for the mean an
 
 Another issue is the fact that you can not cancel the execution properly.
 
+The script works on every channel and takes it values from there independetly. It would be better to work
+with the hole pixel to avoid creating new color combinations.
+
 If you have a solution to this problems just let me now.
 
 
 ### Roadmap
 
 I am planing to implement the range average and my own generalized mode average.  
-If it is possible i will speeding the algorithm up.
-
+If it is possible i will speeding the algorithm up.  
+Just use the selection, not the whole image.  
 
 ### Changes
 

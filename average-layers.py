@@ -88,7 +88,6 @@ def calc_mean(img):
         gimp.progress_update((len(layers_vis) - layers_left) / len(layers_vis))
 
     gimp.progress_init('Merging layers')
-    #merge_layer = pdb.gimp_image_merge_visible_layers(img, CLIP_TO_IMAGE)
     pdb.gimp_image_merge_visible_layers(img, CLIP_TO_IMAGE)
     gimp.progress_update(1)
 
@@ -111,7 +110,7 @@ def calc_avrg(img, avrg_fnc):
         for i,layer in enumerate(layers_vis):
             layer_rgn = layer.get_pixel_rgn(0, 0, image_x, image_y, False, False)
             layers_arrays.append(array("B", layer_rgn[:, :]))
-            num_channels = len(layer_rgn[0,0])  # Not pretty but it works
+            num_channels = len(layer_rgn[0,0])  # Not pretty in this loop but it works
             gimp.progress_update((i+1) / float(len(layers_vis)))
 
         # create the merge layer and the destination pixel region
@@ -123,27 +122,15 @@ def calc_avrg(img, avrg_fnc):
 
         pdb.gimp_message("Doing the hard work")
         t = time.time()
-        gimp.progress_init('Process the ' + str(num_channels) + ' channels (please wait)')
-        for channel in range(num_channels):
-            for pos in range(image_x*image_y):
-                if not pos % (image_x*image_y/5 ):
-                    gimp.progress_update((channel + pos/float(image_x*image_y)) / float(num_channels))
 
-                # Used to save the values of one channel of one pixel of every layer
-                values = []
-                location = num_channels * pos + channel
-                for arr in layers_arrays:
-                    values.append(arr[location])
+        # process the arrays in this manner
+        # its faster than actual write out the for loops
+        averaged_values = [int(avrg_fnc([arr[i] for arr in layers_arrays])) for i in range(len(layers_arrays[0]))]
+        dest_array = array('B',averaged_values)
 
-                # calculate the average with the given average function
-                avrg = int(avrg_fnc(values))
 
-                # add to the dest_array
-                dest_array[location] = avrg
-
-        gimp.progress_update(1)
-        pdb.gimp_message("Hard work done!")
         pdb.gimp_message(str(time.time() - t))
+        pdb.gimp_message("Hard work done!")
 
         # add dest_array to the dest_rgn
         dest_rgn[:,:] = dest_array.tostring()   # deprecated in Python 3
